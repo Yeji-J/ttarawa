@@ -100,7 +100,7 @@ export default function NaviPath(props: {
 
   // recoil에서 remainingDistance 가져오기
   const [remainingDistance, setRemainingDistance] = useRecoilState(
-    remainingDistanceState
+    remainingDistanceState,
   )
 
   const [watcher, setWatcher] =
@@ -132,7 +132,7 @@ export default function NaviPath(props: {
     path.forEach((point: any) => {
       const distance = Math.sqrt(
         Math.pow(currentPosition.latitude - point.latitude, 2) +
-          Math.pow(currentPosition.longitude - point.longitude, 2)
+          Math.pow(currentPosition.longitude - point.longitude, 2),
       )
       if (distance < minDistance) {
         minDistance = distance
@@ -152,7 +152,7 @@ export default function NaviPath(props: {
       const closestIndex = path.indexOf(closestPoint)
       const firstDistance = Math.sqrt(
         Math.pow(currentPosition.latitude - closestPoint.latitude, 2) +
-          Math.pow(currentPosition.longitude - closestPoint.longitude, 2)
+          Math.pow(currentPosition.longitude - closestPoint.longitude, 2),
       )
       remainingDistance += firstDistance
 
@@ -160,7 +160,7 @@ export default function NaviPath(props: {
       for (let i = closestIndex; i < path.length - 1; i++) {
         const distance = Math.sqrt(
           Math.pow(path[i].latitude - path[i + 1].latitude, 2) +
-            Math.pow(path[i].longitude - path[i + 1].longitude, 2)
+            Math.pow(path[i].longitude - path[i + 1].longitude, 2),
         )
         remainingDistance += distance
       }
@@ -184,7 +184,7 @@ export default function NaviPath(props: {
           // recoil에 remainingDistance 값 저장
           const remainingDistance = calculateRemainingDistance(
             location.coords,
-            resultData
+            resultData,
           )
           setRemainingDistance(remainingDistance)
         }
@@ -200,7 +200,7 @@ export default function NaviPath(props: {
           latitudeDelta: 0.002,
           longitudeDelta: 0.002,
         })
-      }
+      },
     )
     setWatcher(watcher)
     return watcher

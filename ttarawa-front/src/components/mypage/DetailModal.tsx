@@ -30,12 +30,7 @@ interface ModalProps {
   } // FeedCard에 전달할 데이터
 }
 
-export default function DetailModal({
-  visible,
-  onClose,
-  data,
-  pressLike,
-}: ModalProps) {
+export default function DetailModal({ visible, onClose, data, pressLike }: ModalProps) {
   const [modalVisible, setModalVisible] = useState(visible)
   // const { saveLike, deleteLike } = snsaxios
 

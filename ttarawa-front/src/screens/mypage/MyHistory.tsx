@@ -34,7 +34,7 @@ export default function MyHistory() {
   const [isEditMode, setIsEditMode] = useState(false)
   const [contentText, setContentText] = useState('')
   const [page, setPage] = useState(0)
-  const { nickname, badgeImg, profile } = useRecoilValue(userState)
+  const {nickname, badgeImg, profile} = useRecoilValue(userState)
 
   const getData: (params: number) => void = (page: number) => {
     user.fetchRide(page).then((res) => {
@@ -55,6 +55,8 @@ export default function MyHistory() {
     getData(page)
     setModalVisible(false)
   }, [])
+
+  
 
   const pressLike = (key: number) => {
     const check = dataLst.find((data) => data.historyId === key)
@@ -184,7 +186,7 @@ export default function MyHistory() {
     getData(page + 1)
     setPage((prevPage) => prevPage + 1)
   }
-
+  
   return (
     <View style={sns.container} ref={myRef}>
       {dataLst && (

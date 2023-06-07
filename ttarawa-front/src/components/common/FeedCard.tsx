@@ -96,6 +96,7 @@ export default function FeedCard({
         <Image source={{ uri: rank }} style={{ width: 30, height: 20 }} />
       </View>
 
+
       {/* 경로 이미지 */}
       <View style={styles.cardImgContainer}>
         <Image

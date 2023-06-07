@@ -61,7 +61,7 @@ export default function MyLikes({ navigation }) {
     startLat: number,
     startLng: number,
     endLat: number,
-    endLng: number
+    endLng: number,
   ) => {
     await geocoding(startLat, startLng, setDepart)
     await geocoding(endLat, endLng, setDestin)
@@ -94,11 +94,12 @@ export default function MyLikes({ navigation }) {
       .then((res) => {
         let updateData: object = detailData
 
-        updateData.isMyFavorite = updateData.isMyFavorite == 1 ? 0 : 1
-        ;(updateData.favoritesCount = check
+        updateData.isMyFavorite =  updateData.isMyFavorite == 1 ? 0 : 1
+        updateData.favoritesCount = check
           ? updateData.favoritesCount - 1
-          : updateData.favoritesCount + 1),
-          setDetailData(updateData)
+          : updateData.favoritesCount + 1,
+
+        setDetailData(updateData)
         axiosLike()
       })
       .catch((err) => {
@@ -165,7 +166,7 @@ export default function MyLikes({ navigation }) {
                       item.startLat,
                       item.startLng,
                       item.endLat,
-                      item.endLng
+                      item.endLng,
                     )
                   }}
                   icon1={
